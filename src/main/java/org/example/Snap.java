@@ -7,8 +7,7 @@ public class Snap extends CardGame{
         super(name);
     }
     Scanner scanner = new Scanner(System.in);
-    Boolean gameActive;
-
+//    Boolean gameActive;
 
    public void playSnap(){
         CardGame cards = new CardGame("Snap");
@@ -21,11 +20,8 @@ public class Snap extends CardGame{
        cards.dealCard();
        cards.dealCard();
        cards.dealCard();
-       cards.sortBySuit();
-       cards.sortDeckInNumberOrder();
-
+       cards.sortBySymbol();
        }
-
 
     public static void main(String[] args) {
        Snap cards = new Snap("SNAP");
@@ -34,6 +30,7 @@ public class Snap extends CardGame{
 
 
    // Snap
+
     // Card deck should be shuffled
     // player hits enter key to deal a card
     // Card should then be delt

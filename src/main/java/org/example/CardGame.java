@@ -68,6 +68,10 @@ public class CardGame {
     deltCards.sort(new SortBySuit());
         System.out.println(deltCards);
     }
+    public void sortBySymbol(){
+        deltCards.sort(new SortBySymbol());
+        System.out.println(deltCards);
+    }
 
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ public class SortBySuit implements Comparator<Card> {
     public int compare(Card left, Card right) {
         //compare by suit and then by value
         // suits same...
-        if(left.getSuit().equals(right)){
+        if(left.getSuit().equals(right.getSuit())){
             //order by value
             return left.getValue() - right.getValue();
         }
