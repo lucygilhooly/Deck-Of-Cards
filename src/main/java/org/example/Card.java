@@ -1,15 +1,14 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
-public class Card {
-// need a card to be generated with a suit, a value and a symbol
-    //possibly using enums for the suit
+public class Card implements Comparable<Card> {
 
     private final CardGame.suits suit;
 
-    private final String symbol;// ={"2","3","4","5","6","7","8","9","10","J","Q","K","A"};;
-    private final int value;// = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+    private final String symbol;
+    private final int value;
 
     public Card(CardGame.suits suit, String symbol, int value) {
         this.suit = suit;
@@ -31,10 +30,19 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "suit='" + suit + '\'' +
-                ", symbol='" + symbol + '\'' +
-                ", value=" + value +
-                '}';
+        return symbol + " of " + suit;
+    }
+
+    @Override
+    public int compareTo(Card o) {
+        //deck number order
+        //2222
+        if(this.value < o.value){
+            return -1;
+        }
+        if (this.value > o.value){
+            return 1;
+        }
+        return 0;
     }
 }

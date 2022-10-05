@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class CardGame {
@@ -46,7 +47,6 @@ public class CardGame {
             shuffledDeck.remove(0);
         }
         System.out.println(deltCards);
-        System.out.println(cardDeck);
     }
 
     void shuffleDeck() {
@@ -55,8 +55,18 @@ public class CardGame {
             Card removedCard = cardDeck.remove(index);
             shuffledDeck.add(removedCard);
         }
-        System.out.println(cardDeck);
-        System.out.println(shuffledDeck);
+//        System.out.println(shuffledDeck);
+    }
+
+    public void sortDeckInNumberOrder(){
+        Collections.sort(deltCards);
+        System.out.println(deltCards);
+    }
+
+
+    public void sortBySuit(){
+    deltCards.sort(new SortBySuit());
+        System.out.println(deltCards);
     }
 
 
@@ -64,7 +74,10 @@ public class CardGame {
         CardGame cards = new CardGame("SNAP");
         cards.dealCard();
         cards.shuffleDeck();
-        cards.dealCard();
+        cards.sortDeckInNumberOrder();
+        cards.sortBySuit();
+
+
     }
 
 }
