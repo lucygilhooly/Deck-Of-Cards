@@ -59,18 +59,18 @@ public class CardGame {
     }
 
     public void sortDeckInNumberOrder(){
-        Collections.sort(deltCards);
-        System.out.println(deltCards);
+        Collections.sort(shuffledDeck);
+        System.out.println(shuffledDeck);
     }
 
 
     public void sortBySuit(){
-    deltCards.sort(new SortBySuit());
-        System.out.println(deltCards);
+    shuffledDeck.sort(new SortBySuit());
+        System.out.println(shuffledDeck);
     }
     public void sortBySymbol(){
-        deltCards.sort(new SortBySymbol());
-        System.out.println(deltCards);
+        shuffledDeck.sort(new SortBySymbol());
+        System.out.println(shuffledDeck);
     }
 
 

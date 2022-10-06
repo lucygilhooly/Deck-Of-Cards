@@ -10,19 +10,22 @@ public class Snap extends CardGame{
     Boolean gameActive = false;
 
    public void playSnap() {
-       CardGame cards = new CardGame("Snap");
        System.out.println("Welcome to Snap");
-       cards.shuffleDeck();
-       while (gameActive = true) {
+       shuffleDeck();
+       sortDeckInNumberOrder();
+       gameActive = true;
+       while (gameActive) {
            System.out.println("Press enter to draw a card!");
            scanner.nextLine();
            System.out.println("The drawn card is ");
-           cards.dealCard();
+           dealCard();
+
+           if(deltCards.size() > 1 && deltCards.get(0).getValue() == deltCards.get(1).getValue()){ //currently checking all three requirements, just want to check if symbol matches
+               gameActive = false;
+               System.out.println("SNAP!");
+           }
        }
-       if(deltCards.get(0).getValue() == deltCards.get(1).getValue()){ //currently checking all three requirements, just want to check if symbol matches
-           gameActive = false;
-           System.out.println("SNAP!");
-       }
+
    }
 
     public static void main(String[] args) {
