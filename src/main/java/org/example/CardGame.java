@@ -40,10 +40,10 @@ public class CardGame {
 
     void dealCard() {
         if (cardDeck.size() > 0) {
-            deltCards.add(cardDeck.get(0));
+            deltCards.add(0,cardDeck.get(0));
             cardDeck.remove(0);
         } else {
-            deltCards.add(shuffledDeck.get(0));
+            deltCards.add(0,shuffledDeck.get(0));
             shuffledDeck.remove(0);
         }
         System.out.println(deltCards);

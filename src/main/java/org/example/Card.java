@@ -16,6 +16,7 @@ public class Card implements Comparable<Card> {
         this.value = value;
     }
 
+
     public CardGame.suits getSuit() {
         return suit;
     }

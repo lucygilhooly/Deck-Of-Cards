@@ -7,30 +7,31 @@ public class Snap extends CardGame{
         super(name);
     }
     Scanner scanner = new Scanner(System.in);
-//    Boolean gameActive;
+    Boolean gameActive = false;
 
-   public void playSnap(){
-        CardGame cards = new CardGame("Snap");
+   public void playSnap() {
+       CardGame cards = new CardGame("Snap");
        System.out.println("Welcome to Snap");
        cards.shuffleDeck();
-//       while(gameActive){
-       System.out.println("Press enter to draw a card!");
-       String player = scanner.nextLine();
-       System.out.println(player + " The drawn card is ");
-       cards.dealCard();
-       cards.dealCard();
-       cards.dealCard();
-       cards.sortBySymbol();
+       while (gameActive = true) {
+           System.out.println("Press enter to draw a card!");
+           scanner.nextLine();
+           System.out.println("The drawn card is ");
+           cards.dealCard();
        }
+       if(deltCards.get(0).getValue() == deltCards.get(1).getValue()){ //currently checking all three requirements, just want to check if symbol matches
+           gameActive = false;
+           System.out.println("SNAP!");
+       }
+   }
 
     public static void main(String[] args) {
-       Snap cards = new Snap("SNAP");
-       cards.playSnap();
+       Snap game = new Snap("SNAP");
+       game.playSnap();
     }
 
 
-   // Snap
-
+    // Snap
     // Card deck should be shuffled
     // player hits enter key to deal a card
     // Card should then be delt
