@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class CardGame {
     enum suits {
@@ -46,7 +45,17 @@ public class CardGame {
             deltCards.add(0,shuffledDeck.get(0));
             shuffledDeck.remove(0);
         }
-        System.out.println(deltCards);
+//        System.out.println(deltCards);
+    }
+
+    void playingCards(){
+        if (deltCards.size() >= 2){
+            System.out.println(deltCards.get(1));
+            System.out.println(deltCards.get(0));
+
+        } else {
+            System.out.println(deltCards.get(0));
+        }
     }
 
     void shuffleDeck() {
