@@ -53,7 +53,7 @@ public class Snap extends CardGame {
 
         if (deltCards.size() > 1 && deltCards.get(0).getValue() == deltCards.get(1).getValue()) {
             gameActive = false;
-            System.out.println("SNAP!" + currentPlayer.getName()+ " Wins!!");
+            System.out.println("SNAP " + currentPlayer.getName()+ " Wins!!");
             playAgain();
         }
         if (deltCards.size() >= 52 || shuffledDeck.size() == 0) {
@@ -68,7 +68,11 @@ public class Snap extends CardGame {
         System.out.println("Would you like to play again? Enter Yes or No");
         String playAgain = scanner.nextLine();
         if (playAgain.equals("yes")) {
-            shuffleDeck();
+            if (deltCards.size() > 0){
+                shuffledDeck.addAll(deltCards);
+                cardDeck.addAll(shuffledDeck);
+            }
+            playSnap();
             gameActive = true;
         } else {
             System.out.println("Thank you for playing Snap!");
@@ -80,7 +84,7 @@ public class Snap extends CardGame {
         System.out.println("Welcome to Snap");
         setPlayers();
         shuffleDeck();
-        sortDeckInNumberOrder();
+//        System.out.println(shuffledDeck);
         gameActive = true;
         while (gameActive) {
             playerCardDraw();
