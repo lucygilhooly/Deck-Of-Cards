@@ -12,10 +12,8 @@ public class Snap extends CardGame {
     Boolean gameActive = false;
 
     Player currentPlayer;
-    String p1 = "";
-    String p2 = "";
-
-
+    Player player1;
+    Player player2;
     void setPlayers() {
         System.out.println("How many players for this round? enter 1 or 2");
         String p = scanner.nextLine();
@@ -25,32 +23,28 @@ public class Snap extends CardGame {
         } else if (p.equals("2")) {
             System.out.println("Two player Snap!");
             System.out.println("Player 1, please enter your name: ");
-            p1 = scanner.nextLine();
-
+            String p1 = scanner.nextLine();
+            player1 = new Player(p1);
             System.out.println("Player 2, please enter your name: ");
-            p2 = scanner.nextLine();
-
+            String p2 = scanner.nextLine();
+            player2 = new Player(p2);
             System.out.println("Best of luck, " + p1 + " and " + p2 + " Lets play!");
+            currentPlayer = player1;
         }
-        System.out.println(p1 + " Starts the game");
+        System.out.println(player1.getName()+ " Starts the game");
 
     }
-    Player player1 = new Player(p1);
-    Player player2 = new Player(p2);
+
     void switchPlayers(){
         if (currentPlayer == player2){
-            System.out.println(p2 + "'s go!");
-            playerCardDraw();
             currentPlayer = player1;
         }else {
-            currentPlayer = player1;
-            System.out.println(p1 + "'s go!");
-            playerCardDraw();
             currentPlayer = player2;
         }
     }
 
     void playerCardDraw(){
+        System.out.println(currentPlayer.getName() + "'s go!");
         System.out.println("Press enter to draw a card!");
         scanner.nextLine();
         System.out.println("The drawn card is ");
@@ -59,7 +53,7 @@ public class Snap extends CardGame {
 
         if (deltCards.size() > 1 && deltCards.get(0).getValue() == deltCards.get(1).getValue()) {
             gameActive = false;
-            System.out.println("SNAP!" + currentPlayer.getName()); // add winning player here
+            System.out.println("SNAP!" + currentPlayer.getName()+ " Wins!!");
             playAgain();
         }
         if (deltCards.size() >= 52 || shuffledDeck.size() == 0) {
@@ -89,7 +83,8 @@ public class Snap extends CardGame {
         sortDeckInNumberOrder();
         gameActive = true;
         while (gameActive) {
-           switchPlayers();
+            playerCardDraw();
+            switchPlayers();
         }
 
     }
